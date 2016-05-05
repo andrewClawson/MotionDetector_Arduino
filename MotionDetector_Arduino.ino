@@ -21,6 +21,7 @@ void setup(){
   //Initialize particle cloud variables
 
   Particle.variable("Armed",&Armed,INT);
+  
   //Initialize particle cloud functions.
 
 
@@ -38,10 +39,13 @@ void loop(){
 
     previous = HIGH;
     previous2 = HIGH;
+    //success = Particle.publish("Armed");
     //digitalWrite(speaker, HIGH);
   //}
     delay(5000);
     Armed = 1;
+    Particle.publish("System Armed");
+
     digitalWrite(ArmedLED,HIGH);
 
   }
@@ -49,6 +53,9 @@ void loop(){
 
   // Motion detected
   if(sensorstate == LOW && previous2 == HIGH){
+    Particle.publish("Motion Detected");
+
+
    Serial.println("motion detected");
    //delay(2000);
 
