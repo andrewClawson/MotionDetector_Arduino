@@ -21,7 +21,7 @@ void setup(){
   //Initialize particle cloud variables
 
   Particle.variable("Armed",&Armed,INT);
-  
+
   //Initialize particle cloud functions.
 
 
